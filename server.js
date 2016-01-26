@@ -2,22 +2,11 @@ var express = require("express"),
 	mongoose = require("mongoose"),
 	bodyParser = require("body-parser"),
 	app = express(),
-	port = 8080,
 	secrets = require("./secrets"),
-	uristring = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/weatherish';
+	uristring = secrets.uristring;
 
 	app.use(express.static(__dirname+"/public"));
 	app.use(bodyParser.json());
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -25,12 +14,9 @@ var express = require("express"),
 		return res.send(secrets.forecastIOKey);
 	})
 
-
-
-
 	//Connections
-	app.listen(process.env.PORT || port, function(){
-		console.log("listening on port: ", port);
+	app.listen(process.env.PORT, function(){
+		console.log("listening");
 	});
 
 	mongoose.connect(uristring);
