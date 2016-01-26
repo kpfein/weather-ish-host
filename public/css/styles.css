@@ -1,0 +1,238 @@
+.clearDay {
+	background: url(../images/clear-day.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.clearNight {
+	background: url(../images/clear-night.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.rain {
+	background: url(../images/rain.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.snow {
+	background: url(../images/snow.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.sleet {
+	background: url(../images/sleet.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.wind {
+	background: url(../images/wind.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.fog {
+	background: url(../images/fog.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.cloudy {
+	background: url(../images/cloudy.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.partlyCloudyDay {
+	background: url(../images/partly-cloudy-day.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.partlyCloudyNight {
+	background: url(../images/partly-cloudy-night.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.hail {
+	background: url(../images/hail.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.thunderstorm {
+	background: url(../images/thunderstorm.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+.tornado {
+	background: url(../images/tornado.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+    	-moz-background-size: cover;
+    	-o-background-size: cover;
+    	background-size: cover;
+}
+
+.top-stuff {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+    background-color: rgb(106,141,171);
+	position: fixed;
+	top: 0;
+	z-index: 10;
+
+}
+.input-group-addon, .form-control, #search-btn {
+	background-color: transparent;
+	border-color: #f4f5f7;
+	color: #f4f5f7;
+}
+.brand-image-contain {
+	padding: 10px;
+	padding-left: 20px
+}
+#brand-image {
+	height: 50px;
+}
+.search-area {
+	width: 40%;
+}
+#search-input {
+	border: none;
+	border-bottom: 1px solid #f4f5f7;
+	padding-left: 0px;
+	padding-bottom: 0px;
+}
+#search-icon {
+	padding-right: 10px;
+	padding-bottom: 0px;
+	border-radius: 0px;
+	border: none;
+}
+#search-btn {
+	padding-left: 0px;
+	padding-right: 10px;
+	border-radius: 0px;
+	border: none;
+}
+.time {
+	color: #f4f5f7;
+	padding: 15px;
+}
+
+.wi-day-sunny {
+	color: #f7f731;
+}
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #f4f5f7 !important;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #f4f5f7 !important;
+   opacity:  1;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #f4f5f7 !important;
+   opacity:  1;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #f4f5f7 !important;
+}
+input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
+  color:    #f4f5f7 !important;
+}
+input.form-control,input.form-control:focus {
+    border-color: #f4f5f7;
+    box-shadow: none;
+   -webkit-box-shadow: none;
+   -moz-box-shadow: none;
+   -moz-transition: none;
+   -webkit-transition: none;
+}
+
+/*home page*/
+.home-contain {
+	color: #f4f5f7;
+	margin-top: 87px;
+}
+.panel {
+	background-color: rgba(216, 215, 264, 0.2);
+}
+.alert {
+	color: red;
+	cursor: pointer;
+	margin-bottom: 0px;
+}
+.col-sm-6 {
+	z-index: 2;
+}
+.vw40 {
+	font-size:40vw;
+}
+.table {
+	width: 100%;
+}
+.text-no-margin {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.vert-text {
+	height: 50px;
+    line-height: 50px;
+    white-space: nowrap;
+}
+.icon-contain {
+	padding-top: 50px;
+}
+#vert-icon {
+	position: relative;
+}
+.vert-icon {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.no-pad {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.wi-thermometer {
+	padding-top: 25px;
+}
+#precip-text {
+	margin-top: 10px;
+}
+footer {
+	font-size: 0.8em;
+	width: 100%;
+    background-color: rgb(106,141,171);
+	color: #f4f5f7;
+	z-index: 10;
+}
+.footer-text {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+

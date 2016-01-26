@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather-ish</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+	<link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+	<link rel="stylesheet" href="css/weather-icons.min.css">
+	<link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/src/autocomplete.css"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body ng-app="weatherish">
+<ui-view></ui-view>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClUYoX_5_UNwg14LnUPwEDWhu_uZhq_Wc&libraries=places"></script>
+	<script src="https://code.angularjs.org/1.4.7/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+
+	<script src="app.js"></script>
+
+
+	<script src="controllers/homeCtrl.js"></script>
+	<script src="services/homeService.js"></script>
+	<script src="directives/timeDirective.js"></script>
+	<script src="/bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
+</body>
+</html>

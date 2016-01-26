@@ -1,0 +1,21 @@
+<div class="top-stuff ">
+	<div class="brand-image-contain">
+    	<a ui-sref="main.home"><img ng-click="getCurrentLocationWeather()" id="brand-image" src="images/weatherish-logo2.png"></a>
+	</div>
+	<div class="search-area">
+		<form role="search" type="submit" >
+		    <div class="input-group input-group-lg">
+		    	<span id="search-icon" class="input-group-addon"><span style="font-size:0.75em" class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+			    <input id="search-input" g-places-autocomplete ng-model="searchInput" type="text" class="form-control" placeholder="Search">
+			    <span class="input-group-btn"><button ui-sref="main.search" ng-click="findWeather(searchInput)"class="btn btn-defualt" id="search-btn" type="submit"></button></span>
+		    </div>
+		</form>
+	</div>
+	<div class="time">
+		<show-time></show-time>
+	</div>
+</div>
+<!-- <div ui-view></div> -->
+<ui-view></ui-view>
+<footer><h6 class="text-center footer-text">© 2016 Kyle Feinauer - Weather data courtesy of The Dark Sky Forecast API</h6></footer>
+

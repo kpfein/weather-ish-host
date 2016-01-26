@@ -1,0 +1,159 @@
+<div ng-class="{'clearDay': sw.currently.icon === 'clear-day', 'clearNight': sw.currently.icon === 'clear-night', 'partlyCloudy': sw.currently.icon === 'partly-cloudy-day', 'rain': sw.currently.icon === 'rain', 'snow': sw.currently.icon === 'snow', 'sleet': sw.currently.icon === 'sleet', 'wind': sw.currently.icon === 'strong-wind', 'fog': sw.currently.icon === 'fog', 'cloudy': sw.currently.icon === 'cloudy', 'partlyCloudyDay': sw.currently.icon === 'partly-cloudy-day', 'partlyCloudyNight': sw.currently.icon === 'partly-cloudy-night', 'hail': sw.currently.icon === 'hail', 'thunderstorm': sw.currently.icon === 'thunderstorm', 'tornado': sw.currently.icon === 'tornado' }" >
+
+
+
+	<div class="container container-fluid home-contain">
+		<h2>{{sw.loc}}</h2>
+		<h2>Current <span ng-if="sw.alerts" ng-click="showSearchAlerts()" class="glyphicon glyphicon-warning-sign alert" aria-hidden="true"></span></h2>
+		<div class="panel">
+			<div class="panel-body">
+				<div class="col-sm-6 icon-contain">
+					<i ng-if="sw.currently.icon === 'clear-day'" style="font-size:20vw" class="wi wi-day-sunny"></i>
+					<i ng-if="sw.currently.icon === 'clear-night'" class="wi wi-night-clear vw40"></i>
+					<i ng-if="sw.currently.icon === 'rain'" style="font-size:20vw" class="wi wi-rain"></i>
+					<i ng-if="sw.currently.icon === 'snow'" style="font-size:20vw" class="wi wi-snow"></i>
+					<i ng-if="sw.currently.icon === 'sleet'" style="font-size:20vw" class="wi wi-sleet"></i>
+					<i ng-if="sw.currently.icon === 'wind'" style="font-size:30vw" class="wi wi-strong-wind"></i>
+					<i ng-if="sw.currently.icon === 'fog'" style="font-size:25vw" class="wi wi-fog"></i>
+					<i ng-if="sw.currently.icon === 'cloudy'" style="font-size:30vw" class="wi wi-cloudy"></i>
+					<i ng-if="sw.currently.icon === 'partly-cloudy-day'" style="font-size:20vw;" class="wi wi-day-cloudy"></i>
+					<i ng-if="sw.currently.icon === 'partly-cloudy-night'" style="font-size:30vw" class="wi wi-night-cloudy"></i>
+					<i ng-if="sw.currently.icon === 'hail'" style="font-size:20vw" class="wi wi-hail"></i>
+					<i ng-if="sw.currently.icon === 'thunderstrom'" style="font-size:20vw" class="wi wi-thunderstrom"></i>
+					<i ng-if="sw.currently.icon === 'tornado'" style="font-size:30vw" class="wi wi-tornado"></i>
+				</div>
+				<div class="col-sm-6">
+					<h2>{{sw.currently.summary}}</h2>
+					<table class="table table-condensed">
+						<tr>
+							<td><h2 class="text-no-margin"><span class="wi wi-thermometer" ></span></h2></td>
+							<td><h2 class="text-no-margin">{{round(sw.currently.temperature)}}°F</h2><h2 class="text-no-margin">{{celsius(sw.currently.temperature)}}°C</h2></td>
+						</tr>
+						<tr>
+							<td><h4>Feels Like</h4></td>
+							<td><h3 class="text-no-margin">{{round(sw.currently.apparentTemperature)}}°F</h3><h3 class="text-no-margin">{{celsius(sw.currently.apparentTemperature)}}°C</h3></td>
+						</tr>
+						<tr>
+							<td><h4>Hi</h4></td>
+							<td><h3 class="text-no-margin">{{round(sw.daily.data[0].temperatureMax)}}°F</h3><h3 class="text-no-margin">{{celsius(sw.daily.data[0].temperatureMax)}}°C</h3></td>
+						</tr>
+						<tr>
+							<td><h4>Lo</h4></td>
+							<td><h3 class="text-no-margin">{{round(sw.daily.data[0].temperatureMin)}}°F</h3><h3 class="text-no-margin">{{celsius(sw.daily.data[0].temperatureMin)}}°C</h3></td>
+						</tr>
+						<tr>
+							<td><h4>Precipitation</h4></td>
+							<td><h3 id="precip-text">{{percentage(sw.currently.precipProbability)}}% {{w.precipType}}</h3></td>
+						</tr>
+						<tr>
+							<td><h2 class="text-no-margin"><span class="wi wi-strong-wind no-pad" ></span></h2></td>
+							<td><h3 class="text-no-margin">{{direction(sw.currently.windBearing)}} {{round(sw.currently.windSpeed)}} mph</h3></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+<br>
+		<h2>Seven Day Forecast</h2>
+		<div class="panel">
+			<div class="panel-heading"><h3>{{sw.daily.summary}}</h3></div>
+			<div class="table-responsive">
+				<div class="panel-body">
+				<table class="table">
+					<tr>
+						<th><h3>Day</h3></th>
+						<th><h3>Cond</h3></th>
+						<th><h3>Hi</h3></th>
+						<th><h3>Lo</h3></th>
+						<th><h3>Precip</h3></th>
+						<th><h3>Wind</h3></th>
+					</tr>
+					<tr ng-repeat="w in sw.daily.data">
+						<td><h3 class="vert-text">{{convertDate(w.time) | date: "EEEE"}}</h3></td>
+						<td id="vert-icon">
+							<i ng-if="w.icon === 'clear-day'" style="font-size:3em" class="wi wi-day-sunny vert-icon"></i>
+							<i ng-if="w.icon === 'clear-night'" style="font-size:3em" class="wi wi-night-clear vert-icon"></i>
+							<i ng-if="w.icon === 'rain'" style="font-size:3em" class="wi wi-rain vert-icon"></i>
+							<i ng-if="w.icon === 'snow'" style="font-size:3em" class="wi wi-snow vert-icon"></i>
+							<i ng-if="w.icon === 'sleet'" style="font-size:3em" class="wi wi-sleet vert-icon"></i>
+							<i ng-if="w.icon === 'wind'" style="font-size:3em" class="wi wi-strong-wind vert-icon"></i>
+							<i ng-if="w.icon === 'fog'" style="font-size:3em" class="wi wi-fog vert-icon"></i>
+							<i ng-if="w.icon === 'cloudy'" style="font-size:3em" class="wi wi-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'partly-cloudy-day'" style="font-size:3em" class="wi wi-day-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'partly-cloudy-night'" style="font-size:3em" class="wi wi-night-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'hail'" style="font-size:3em" class="wi wi-hail vert-icon"></i>
+							<i ng-if="w.icon === 'thunderstrom'" style="font-size:3em" class="wi wi-thunderstrom vert-icon"></i>
+							<i ng-if="w.icon === 'tornado'" style="font-size:3em" class="wi wi-tornado vert-icon"></i>
+						</td>
+						<td><h4 class="text-no-margin vert-text">{{round(w.temperatureMax)}}°F</h4><h4 class="text-no-margin vert-text">{{celsius(w.temperatureMax)}}°C</h4></td>
+						<td><h4 class="text-no-margin vert-text">{{round(w.temperatureMin)}}°F</h4><h4 class="text-no-margin vert-text">{{celsius(w.temperatureMin)}}°C</h4></td>
+						<td><h4 class="vert-text">{{percentage(w.precipProbability)}}% {{w.precipType}}</h4></td>
+						<td>
+							<h4 class="vert-text">
+							<!-- <span ng-if="direction(w.windBearing) === 'N'" style="font-size:3em" class="wi wi-direction-up"></span>
+							<span ng-if="direction(w.windBearing) === 'NNE' || direction(w.windBearing) === 'NE' || direction(w.windBearing) === 'ENE' " style="font-size:3em" class="wi wi-direction-up-right"></span>
+							<span ng-if="direction(w.windBearing) === 'E'" style="font-size:3em" class="wi wi-direction-right"></span>
+							<span ng-if="direction(w.windBearing) === 'ESE' || direction(w.windBearing) === 'SE' || direction(w.windBearing) === 'SSE' " style="font-size:3em" class="wi wi-direction-down-right"></span>
+							<span ng-if="direction(w.windBearing) === 'S'" style="font-size:3em" class="wi wi-direction-down"></span>
+							<span ng-if="direction(w.windBearing) === 'SSW' || direction(w.windBearing) === 'SW' || direction(w.windBearing) === 'WSW' " style="font-size:3em" class="wi wi-direction-down-left"></span>
+							<span ng-if="direction(w.windBearing) === 'W'" style="font-size:3em" class="wi wi-direction-left"></span>
+							<span ng-if="direction(w.windBearing) === 'WNW' || direction(w.windBearing) === 'NW' || direction(w.windBearing) === 'NNW' " style="font-size:3em" class="wi wi-direction-up-left"></span> -->
+							{{direction(w.windBearing)}} {{round(w.windSpeed)}} mph</h4>
+						</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+<br>
+		<h2>Hourly Forecast</h2>
+		<div class="panel">
+			<div class="panel-heading"><h3>{{sw.hourly.summary}}</h3></div>
+			<div class="table-responsive">
+				<div class="panel-body">
+				<table class="table">
+					<tr>
+						<th><h3>Time</h3></th>
+						<th><h3>Cond</h3></th>
+						<th><h3>Temp</h3></th>
+						<th><h3>Precip</h3></th>
+						<th><h3>Wind</h3></th>
+					</tr>
+					<tr ng-repeat="w in sw.hourly.data">
+						<td><h3 class="vert-text">{{convertDate(w.time) | date: "h a"}}</h3></td>
+						<td id="vert-icon">
+							<i ng-if="w.icon === 'clear-day'" style="font-size:3em" class="wi wi-day-sunny vert-icon"></i>
+							<i ng-if="w.icon === 'clear-night'" style="font-size:3em" class="wi wi-night-clear vert-icon"></i>
+							<i ng-if="w.icon === 'rain'" style="font-size:3em" class="wi wi-rain vert-icon"></i>
+							<i ng-if="w.icon === 'snow'" style="font-size:3em" class="wi wi-snow vert-icon"></i>
+							<i ng-if="w.icon === 'sleet'" style="font-size:3em" class="wi wi-sleet vert-icon"></i>
+							<i ng-if="w.icon === 'wind'" style="font-size:3em" class="wi wi-strong-wind vert-icon"></i>
+							<i ng-if="w.icon === 'fog'" style="font-size:3em" class="wi wi-fog vert-icon"></i>
+							<i ng-if="w.icon === 'cloudy'" style="font-size:3em" class="wi wi-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'partly-cloudy-day'" style="font-size:3em" class="wi wi-day-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'partly-cloudy-night'" style="font-size:3em" class="wi wi-night-cloudy vert-icon"></i>
+							<i ng-if="w.icon === 'hail'" style="font-size:3em" class="wi wi-hail vert-icon"></i>
+							<i ng-if="w.icon === 'thunderstrom'" style="font-size:3em" class="wi wi-thunderstrom vert-icon"></i>
+							<i ng-if="w.icon === 'tornado'" style="font-size:3em" class="wi wi-tornado vert-icon"></i>
+						</td>
+						<td ><h4 class="text-no-margin vert-text">{{round(w.temperature)}}°F</h4><h4 class="text-no-margin vert-text">{{celsius(w.temperature)}}°C</h4></td>
+						<td><h4 class="vert-text">{{percentage(w.precipProbability)}}% {{w.precipType}}</h4></td>
+						<td><h4 class="vert-text">
+							<!-- <span ng-if="direction(w.windBearing) === 'N'" style="font-size:3em" class="wi wi-direction-up"></span>
+							<span ng-if="direction(w.windBearing) === 'NNE' || direction(w.windBearing) === 'NE' || direction(w.windBearing) === 'ENE' " style="font-size:3em" class="wi wi-direction-up-right"></span>
+							<span ng-if="direction(w.windBearing) === 'E'" style="font-size:3em" class="wi wi-direction-right"></span>
+							<span ng-if="direction(w.windBearing) === 'ESE' || direction(w.windBearing) === 'SE' || direction(w.windBearing) === 'SSE' " style="font-size:3em" class="wi wi-direction-down-right"></span>
+							<span ng-if="direction(w.windBearing) === 'S'" style="font-size:3em" class="wi wi-direction-down"></span>
+							<span ng-if="direction(w.windBearing) === 'SSW' || direction(w.windBearing) === 'SW' || direction(w.windBearing) === 'WSW' " style="font-size:3em" class="wi wi-direction-down-left"></span>
+							<span ng-if="direction(w.windBearing) === 'W'" style="font-size:3em" class="wi wi-direction-left"></span>
+							<span ng-if="direction(w.windBearing) === 'WNW' || direction(w.windBearing) === 'NW' || direction(w.windBearing) === 'NNW' " style="font-size:3em" class="wi wi-direction-up-left"></span> -->
+							{{direction(w.windBearing)}} {{round(w.windSpeed)}} mph</h4>
+						</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
