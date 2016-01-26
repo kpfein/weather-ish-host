@@ -1,4 +1,4 @@
-angular.module("weatherish", ["ui.router", "google.places"]).config(function($stateProvider, $urlRouterProvider){
+angular.module("weatherish", ["ui.router", "google.places", "angular-spinkit"]).config(function($stateProvider, $urlRouterProvider){
 
 	$urlRouterProvider.otherwise("/home");
 
@@ -9,11 +9,11 @@ angular.module("weatherish", ["ui.router", "google.places"]).config(function($st
 			url: "",
 			controller: "homeCtrl",
 			templateUrl: "templates/routes.html",
-			resolve: {
-				thisLocationWeather: function(homeService){
-					return homeService.getCurrentLocationWeather();
-				},
-			}
+			// resolve: {
+			// 	thisLocationWeather: function(homeService){
+			// 		return homeService.getCurrentLocationWeather();
+			// 	},
+			// }
 		})
 		.state("main.home", {
 			url: "/home", 

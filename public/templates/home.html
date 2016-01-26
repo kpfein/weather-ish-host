@@ -1,4 +1,5 @@
-<div ng-class="{'clearDay': w.currently.icon === 'clear-day', 'clearNight': w.currently.icon === 'clear-night', 'partlyCloudy': w.currently.icon === 'partly-cloudy-day', 'rain': w.currently.icon === 'rain', 'snow': w.currently.icon === 'snow', 'sleet': w.currently.icon === 'sleet', 'wind': w.currently.icon === 'strong-wind', 'fog': w.currently.icon === 'fog', 'cloudy': w.currently.icon === 'cloudy', 'partlyCloudyDay': w.currently.icon === 'partly-cloudy-day', 'partlyCloudyNight': w.currently.icon === 'partly-cloudy-night', 'hail': w.currently.icon === 'hail', 'thunderstorm': w.currently.icon === 'thunderstorm', 'tornado': w.currently.icon === 'tornado' }" >
+<rotating-plane-spinner class="three-dots-row-spinner" ng-show="notLoaded"></rotating-plane-spinner>
+<div ng-show="weatherLoaded"ng-class="{'clearDay': w.currently.icon === 'clear-day', 'clearNight': w.currently.icon === 'clear-night', 'partlyCloudy': w.currently.icon === 'partly-cloudy-day', 'rain': w.currently.icon === 'rain', 'snow': w.currently.icon === 'snow', 'sleet': w.currently.icon === 'sleet', 'wind': w.currently.icon === 'strong-wind', 'fog': w.currently.icon === 'fog', 'cloudy': w.currently.icon === 'cloudy', 'partlyCloudyDay': w.currently.icon === 'partly-cloudy-day', 'partlyCloudyNight': w.currently.icon === 'partly-cloudy-night', 'hail': w.currently.icon === 'hail', 'thunderstorm': w.currently.icon === 'thunderstorm', 'tornado': w.currently.icon === 'tornado' }" >
 
 
 
@@ -155,4 +156,3 @@
 		</div>
 	</div>
 </div>
-

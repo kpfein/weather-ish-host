@@ -15,7 +15,7 @@ var express = require("express"),
 	})
 
 	//Connections
-	app.listen(process.env.PORT, function(){
+	app.listen(8080, function(){
 		console.log("listening");
 	});
 

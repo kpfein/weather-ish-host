@@ -1,12 +1,17 @@
-angular.module("weatherish").controller("homeCtrl", function($scope, homeService, thisLocationWeather){
+angular.module("weatherish").controller("homeCtrl", function($scope, homeService, $state){
 	var s = $scope;
-	s.w = thisLocationWeather;
 	s.getCurrentLocationWeather = function(){
 		homeService.getCurrentLocationWeather().then(function(results){
 			console.log("currentlocation", results)
 			s.w = results
+			$state.go("main.home")
+			s.weatherLoaded = true;
+			s.notLoaded = false;
 		})
 	}();
+
+	s.weatherLoaded = false;
+	s.notLoaded = true;
 
 	s.temp = function(temp){return Math.round(temp);}
 	s.convertDate = function(dt){return new Date(dt * 1000);}
